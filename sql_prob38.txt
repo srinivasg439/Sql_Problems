@@ -66,10 +66,11 @@ Output:
 
 # Solution : MySQL query statement below
 
-with cte as
-(select product_id,year as first_year,quantity,price,
-row_number() over(partition by product_id order by year) as rw
-from Sales)
+with base as 
+(select s.product_id,s.year as first_year,s.quantity,s.price,
+dense_rank() over(partition by product_id order by year asc) as rw
+from sales s
+left join product p on s.product_id = p.product_id)
 select c.product_id,c.first_year,c.quantity,c.price
-from cte c
-where c.rw = 1
+from base c
+where c.rw =1
