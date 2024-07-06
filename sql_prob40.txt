@@ -62,7 +62,7 @@ Output:
 +-------------+--------------+
 | 1           | S8           |
 +-------------+--------------+
-Explanation: 
+Explanation:    
 The product with id 1 was only sold in the spring of 2019.
 The product with id 2 was sold in the spring of 2019 but was also sold after the spring of 2019.
 The product with id 3 was sold after spring 2019.
